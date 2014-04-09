@@ -1,0 +1,78 @@
+<div class="step" ng-if="step">
+  <h1>{{step.title}}</h1>
+  <p ng-bind-html="step.description"></p>
+  <div class="question" ng-repeat="question in step.questions">
+    <h2>{{question.title}} <small>{{question.description}}</small></h2>
+    <div ng-switch on="question.type">
+
+      <!-- CHECKBOXES -->
+      <div ng-switch-when="check" class="row">
+        <div class="col-md-{{choice.width? choice.width: 6}}" ng-repeat="choice in question.items" ng-click="checkbox(question, choice)">
+          <div class="choice" ng-class="{selected: choice.selected}" style="height: {{choice.height || 50}}px">
+            <div class="status">
+              <span class="glyphicon glyphicon-{{choice.selected? 'ok': 'remove'}}"></span>
+            </div>
+            <div class="content">
+              <input type="text" class="form-control" style="width: {{choice.inputWidth}}%;" ng-model="choice.userInput" ng-if="choice.free" placeholder="Autre">
+              <span ng-bind-html="choice.text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RADIOS -->
+      <div ng-switch-when="radio" class="row">
+        <div class="col-md-{{choice.width? choice.width: 6}}" ng-repeat="choice in question.items" ng-click="radio(question, choice)">
+          <div class="choice" ng-class="{selected: choice.selected}" style="height: {{choice.height || 50}}px">
+            <div class="status">
+              <span class="glyphicon glyphicon-{{choice.selected? 'ok': 'remove'}}"></span>
+            </div>
+            <div class="content">
+              <input type="text" class="form-control" style="width: {{choice.inputWidth}}%;" ng-model="choice.userInput" ng-if="choice.free" placeholder="Autre">
+              <span ng-bind-html="choice.text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPEN -->
+      <div ng-switch-when="open" class="row">
+        <div class="col-md-12">
+          <div class="choice">
+            <textarea class="form-control" rows="3" ng-model="question.value"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHECKGRID -->
+      <div ng-switch-when="checkGrid" class="check-grid">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th class="check-grid-col">Pas du tout d'accord</th>
+              <th class="check-grid-col">Pas vraiment d'accord</th>
+              <th class="check-grid-col">Plutôt d'accord</th>
+              <th class="check-grid-col">Tout à fait d'accord</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in question.items">
+              <th>{{item.text}}</th>
+              <td><div class="check-grid-cell glyphicon glyphicon-{{(item.value == 1)? 'ok': 'remove'}}" ng-click="checkGrid(question, item, 1)"></div></td>
+              <td><div class="check-grid-cell glyphicon glyphicon-{{(item.value == 2)? 'ok': 'remove'}}" ng-click="checkGrid(question, item, 2)"></div></td>
+              <td><div class="check-grid-cell glyphicon glyphicon-{{(item.value == 3)? 'ok': 'remove'}}" ng-click="checkGrid(question, item, 3)"></div></td>
+              <td><div class="check-grid-cell glyphicon glyphicon-{{(item.value == 4)? 'ok': 'remove'}}" ng-click="checkGrid(question, item, 4)"></div></td>
+            </tr>
+        </table>
+      </div>
+
+    </div>
+    <textarea class="form-control comments" rows="3" ng-model="question.comments" ng-if="question.hasComments" placeholder="Commentaires"></textarea>
+  </div>
+  <button ng-click="validate()">Continuer</button>
+</div>
+
+<div class="error" ng-if="!step">
+  Ah non.
+</div>
