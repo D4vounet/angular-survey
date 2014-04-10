@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
 var Question = new Schema({
   step: {type: ObjectId},
   order: {type: Number},
-  type: {type: String, enum:['check', 'radio', 'open', 'checkGrid', 'textGrid'], default: 'text'},
+  type: {type: String, enum:['check', 'radio', 'fields', 'open', 'checkGrid', 'textGrid'], default: 'text'},
   title: {type: String},
   description: {type: String},
   name: {type: String},

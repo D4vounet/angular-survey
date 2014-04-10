@@ -53,7 +53,7 @@ body {
     }
 
     .col-md-6, .col-md-12 {margin-bottom: 10px;}
-    .choice {
+    .choice, .item {
 
       background-color: @baseChoice;
       border-radius: 10px;
@@ -96,6 +96,12 @@ body {
       &:hover {
         background-color: lighten(@baseChoice, 5%);
         .status { background-color: darken(@baseChoice, 10%);}
+      }
+    }
+
+    .item {
+      .content {
+        padding-left: 10px;
       }
     }
 

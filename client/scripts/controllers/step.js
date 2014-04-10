@@ -25,11 +25,18 @@ angular.module('angular-survey')
             if(question.items[j].selected)
               data[question.items[j].name] = question.items[j].userInput || true;
           }
+        } else if(question.type == 'fields'){
+          // FIELDS
+          data = {};
+          for(var j=0; j<question.items.length; j++){
+            if(question.items[j].value)
+              data[question.items[j].name] = question.items[j].value
+          }
         } else if(question.type == 'open'){
-          // RADIO
+          // OPEN
           data = question.value;
         } else if(question.type == 'checkGrid'){
-          // RADIO
+          // CHECKGRID
           data = {};
           for(var j=0; j<question.items.length; j++){
             if(question.items[j].value)

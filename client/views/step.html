@@ -13,7 +13,7 @@
               <span class="glyphicon glyphicon-{{choice.selected? 'ok': 'remove'}}"></span>
             </div>
             <div class="content">
-              <input type="text" class="form-control" style="width: {{choice.inputWidth}}%;" ng-model="choice.userInput" ng-if="choice.free" placeholder="Autre">
+              <input type="text" class="form-control" style="width: {{choice.inputWidth}}%;" ng-model="choice.userInput" ng-if="choice.free" placeholder="{{choice.placeholder || 'Autre'}}">
               <span ng-bind-html="choice.text"></span>
             </div>
           </div>
@@ -28,8 +28,20 @@
               <span class="glyphicon glyphicon-{{choice.selected? 'ok': 'remove'}}"></span>
             </div>
             <div class="content">
-              <input type="text" class="form-control" style="width: {{choice.inputWidth}}%;" ng-model="choice.userInput" ng-if="choice.free" placeholder="Autre">
+              <input type="text" class="form-control" style="width: {{choice.inputWidth || 100}}%;" ng-model="choice.value" ng-if="choice.free" placeholder="{{choice.placeholder || 'Autre'}}">
               <span ng-bind-html="choice.text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIELDS -->
+      <div ng-switch-when="fields" class="row">
+        <div class="col-md-{{item.width? item.width: 6}}" ng-repeat="item in question.items">
+          <div class="item" ng-class="{selected: item.value}" style="height: {{item.height || 50}}px">
+            <div class="content">
+              <input type="text" class="form-control" style="width: {{item.inputWidth || 60}}%;" ng-model="item.value" placeholder="{{item.placeholder}}">
+              <strong>●</strong><span ng-bind-html="item.text"></span>
             </div>
           </div>
         </div>
@@ -73,6 +85,6 @@
   <button ng-click="validate()">Continuer</button>
 </div>
 
-<div class="error" ng-if="!step">
-  Ah non.
+<div class="step" ng-if="!step">
+  <p>Chargement...</p>
 </div>
