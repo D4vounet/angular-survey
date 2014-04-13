@@ -278,7 +278,7 @@ module.exports = function(){
         name: 's3q3',
         items: [
           {name: 'type1', width: 12, height: 75, text: '<strong>Type I :</strong> Echanges formels ou informels, informations argumentées, conseils, écoute et étayage de l\'orthophoniste à la famille.'},
-          {name: 'type2', width: 12, height: 75, text: '<strong>Type II :</strong> Collaboration avec les parents, échanges, conseils, objectifs et stratégies choisis par l\'orthophoniste, apport de techniques.'},
+          {name: 'type2', width: 12, height: 100, text: '<strong>Type II :</strong> Collaboration avec les parents, échanges, conseils, objectifs et stratégies choisis par l\'orthophoniste, apport de techniques.'},
           {name: 'type3', width: 12, height: 75, text: '<strong>Type III :</strong> Intervention des parents, objectifs choisis par l\'orthophoniste, stratégie choisie par le parent, partenariat.'}
         ]
       }).save(function(err, data){ cb(err, data);});
@@ -287,40 +287,40 @@ module.exports = function(){
       var question = new db.models['Question']({
         step: data.step3.id,
         type: 'checkGrid',
-        title: '3.4 - Auto-efficacité',
+        title: '3.4 - Auto-efficacité professionnelle',
         order: 4,
-        description: 'Lors des prises en soins indirectes des dysoralités, diriez-vous: ',
+        description: 'Dans la prise en soins indirecte des dysoralités, afin de transmettre différentes informations aux parents avec vos supports actuels, diriez vous: </strong>',
         name: 's3q4',
         items: [{
           name: 'phrase1',
-          text: 'Je parviens toujours à résoudre les problèmes difficiles si je m\'en donne la peine.'
+          text: 'Je parviens toujours à résoudre les problèmes difficiles.'
         },{
           name: 'phrase2',
-          text: 'Si quelqu\'un (parents, entourage de l\'enfant) me fait obstacle dans le cadre de la rééducation, je peux trouver un moyen pour le surmonter.'
+          text: '« Si quelqu’un (parents, entourage de l’enfant) a des difficultés pour comprendre mes explications, je peux trouver un moyen pour améliorer la situation.'
         },{
           name: 'phrase3',
-          text: 'Il est facile pour moi de maintenir mes intentions et d\'accomplir mes objectifs professionnels.'
+          text: '« Il est facile pour moi de maintenir les objectifs de la séance.'
         },{
           name: 'phrase4',
-          text: 'J\'ai confiance en moi pour faire face efficacement aux évènements innatendus.'
+          text: 'J’ai confiance en moi pour faire face efficacement aux questions inattendues des parents et autres aléas.'
         },{
           name: 'phrase5',
-          text: 'Grâce à mes compétences, je sais gérer des situations professionnelles inattendues.'
+          text: 'Grâce à mes compétences, je peux gérer les situations inattendues lors d’une séance.'
         },{
           name: 'phrase6',
-          text: 'Je peux résoudre la plupart de mes problèmes professionnels si je mets en oeuvre les moyens nécessaires.'
+          text: 'Je peux résoudre la plupart des difficultés d’explication.'
         },{
           name: 'phrase7',
-          text: 'Je reste calme lorsque je suis confronté(e) à des difficultés professionnelles car je peux me reposer sur mes capacitées à maîtriser les problèmes.'
+          text: 'Je reste calme face à des difficultés de transmission des informations, car je suis capable de les surmonter.'
         },{
           name: 'phrase8',
-          text: 'Lorsque je suis confronté(e) à un problème, je peux habituellement trouver plusieurs idées pour le résoudre.'
+          text: 'Lorsque je suis confronté(e) à des problèmes d’explication des informations, je peux trouver plusieurs idées pour les résoudre.'
         },{
           name: 'phrase9',
-          text: 'Si j\'ai une problème professionnel, je sais toujours quoi faire.'
+          text: 'Face à une difficulté en séance avec les parents, je sais toujours quoi faire.'
         },{
           name: 'phrase10',
-          text: 'Quoiqu\'il arrive en séance, je sais généralement faire face.'
+          text: 'Quoiqu’il arrive en séances avec les parents, je sais généralement faire face.'
         },]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -333,11 +333,11 @@ module.exports = function(){
         description: 'Parmi les parents avec qui vous pensez utiliser l\'outil, précisez le profil d\'implication parentale, le plus fréquemment rencontré',
         name: 's3q5',
         items: [
-          {name: 'profil5', text: '<strong>Profil 5 :</strong> Définition'},
-          {name: 'profil4', text: '<strong>Profil 4 :</strong> Définition'},
-          {name: 'profil3', text: '<strong>Profil 3 :</strong> Définition'},
-          {name: 'profil2', text: '<strong>Profil 2 :</strong> Définition'},
-          {name: 'profil1', text: '<strong>Profil 1 :</strong> Définition'}
+          {name: 'profil5', height: 190, width: 12, text: '<strong>Profil 5, participation idéale :</strong> Très bons ajustements de la famille qui prend en compte les difficultés de l’enfant. Utilisation des techniques transmises par l’orthophoniste, au domicile. Lors des séances : coopération active et présence régulière, indications suivies spontanément. Les parents font le lien entre les différents professionnels et impliquent les membres de la famille élargie à la rééducation.'},
+          {name: 'profil4', height: 145, width: 12, text: '<strong>Profil 4, bonne participation :</strong> Adaptation supérieure à la moyenne, participation régulière aux séances, rôle actif des parents mais pas principal. Efforts pour l’utilisation des techniques au domicile avec facilité parfois, et pour impliquer les membres de la famille élargie à la rééducation.'},
+          {name: 'profil3', height: 190, width: 12, text: '<strong>Profil 3, participation moyenne :</strong> Efforts pour comprendre et surmonter les difficultés de l’enfant. Participation à la plupart des séances. La transmission des informations à la famille élargie est limitée. Gestion de la rééducation perçue comme difficile par la famille et parfois assurée par un membre de la famille qui fait plus que sa part de responsabilités. Volonté d’utiliser les techniques mais besoin de soutien et d’indications au quotidien.'},
+          {name: 'profil2', height: 145, width: 12, text: '<strong>Profil 2, participation sous la moyenne :</strong> Difficultés d’acceptation du trouble. Présence aux séances peu régulière. Stress familial quotidien qui empêche la transposition efficace des techniques à la maison, peu d’investissement dans la rééducation. Les soins de l’enfant sont des défis quotidiens.'},
+          {name: 'profil1', height: 120, width: 12, text: '<strong>Profil 1, participation limitée :</strong> Le stress familial prend le pas sur les besoins quotidiens de l’enfant. Compréhension limitée du trouble et de ses conséquences. Participation très irrégulière ou très inefficace.'}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -358,33 +358,11 @@ module.exports = function(){
     s3q7: ['step3', function(cb, data){
       var question = new db.models['Question']({
         step: data.step3.id,
-        type: 'check',
+        type: 'radio',
         title: '3.7',
         order: 7,
-        description: 'Si oui, que contiennent-ils?',
-        name: 's3q7',
-        items: [
-          {name: 'support1', width: 12, text: 'Repères théoriques'},
-          {name: 'support2', width: 12, text: 'Schémas'},
-          {name: 'support3', width: 12, text: 'Protocoles de désensibilisation du réflexe nauséeux'},
-          {name: 'support4', width: 12, text: 'Gestes d\'aide à la succion'},
-          {name: 'support5', width: 12, text: 'Aides à l\'alimentation'},
-          {name: 'support6', width: 12, text: 'Massages corporels et / ou faciaux'},
-          {name: 'support7', width: 12, text: 'Comptine'},
-          {name: 'support8', width: 12, text: 'Informations sur l\'alimentation'},
-          {name: 'support9', width: 12, text: 'Objectifs pour la séance suivante'},
-          {name: 'support10', width: 12, text: 'Autres', free: true, placeholder: 'Précisez', inputWidth: 75},
-        ]
-      }).save(function(err, data){ cb(err, data);});
-    }],
-    s3q8: ['step3', function(cb, data){
-      var question = new db.models['Question']({
-        step: data.step3.id,
-        type: 'radio',
-        title: '3.8',
-        order: 8,
         description: 'Les parents sont-ils demandeur de support reprenant les informations et conseils délivrés lors des séances?',
-        name: 's3q8',
+        name: 's3q7',
         items: [
           {name: 'oui', text: 'Oui'},
           {name: 'non', text: 'Non'}

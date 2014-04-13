@@ -22,7 +22,7 @@ Question.virtual('id').get(function(){
 });
 
 Question.methods.expose = function(){
-  return _.pick(this, 'type', 'description', 'title', 'name', 'required', 'hasComments', 'items', 'id', 'order');
+  return _.pick(this, 'type', 'description', 'title', 'name', 'required', 'hasComments', 'instructions', 'items', 'id', 'order');
 };
 
 module.exports = function(){
