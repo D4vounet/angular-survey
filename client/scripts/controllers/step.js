@@ -45,7 +45,7 @@ angular.module('angular-survey')
         }
 
         if(!_.isEmpty(data)){
-          result[question.id] = { data: data};
+          result[question.id] = data;
           if(question.comments)
             result[question.id].comments = question.comments;
         }

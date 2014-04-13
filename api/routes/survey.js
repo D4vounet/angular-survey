@@ -44,11 +44,48 @@ module.exports = function(app){
 
   app.post('/step/:step', [], function(req, res, next){
     console.log(req.body);
-    res.json({status: 'ok'});
+    db.models['Answer'].findOne({_id: req.body.token}, function(err, answer){
+
+      // Looks for existing step
+      for(var i=0; i<answer.steps.length; i++){
+        if(answer.steps[i].id.toHexString() == req.body.step){
+          var existing = i;
+        }
+      }
+
+      var questions = [];
+      for(var questionId in req.body.data){
+        questions.push({
+          id: questionId,
+          value: req.body.data[questionId]
+        });
+      }
+
+      if(existing)
+        answer.steps[existing].questions = questions;
+      else
+        answer.steps.push({
+          questions: questions,
+          id: req.body.step
+        });
+
+      answer.markModified('steps');
+      answer.save(function(err){
+        if(err) console.log('ERR: ',err);
+        res.json({status: 'ok'});
+      })
+    });
   });
 
   app.post('/start', [], function(req, res, next){
-    res.json({status: 'ok', token: 3});
+
+    db.models['Survey'].findOne(function(err, survey){
+      var newOne = new db.models['Answer']({
+        survey: survey._id
+      }).save(function(err, answer){
+        res.json({status: 'ok', token: answer._id});
+      });
+    });
   })
 
 };

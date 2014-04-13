@@ -6,13 +6,15 @@ var mongoose = require('mongoose'),
 
 var Answer = new Schema({
   survey: {type: ObjectId},
-  token: {type: String},
   createdAt: {type: Date, default: Date.now},
-  duration: {type: Number},
-  answers: [{
-    name: {type: String},
-    value: {type: Schema.Types.Mixed},
-    duration: {type: Number},
+  steps: [{
+    id: {type: ObjectId},
+    questions: [{
+      id: {type: ObjectId},
+      value: {type: Schema.Types.Mixed},
+      _id: false
+    }],
+    _id: false
   }]
 });
 

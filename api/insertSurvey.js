@@ -13,7 +13,7 @@ module.exports = function(){
     survey: ['clean', function(cb){
       var survey = new db.models['Survey']({
         name: 'Questionnaire',
-        description: 'Ceci est un charmant questionnaire. Dans le cadre de notre mémoire, nous allons réaliser un outil. Il se présentera sous formes de fiches numérisées, imprimables et qui pourront être insérées dans un classeur ou autre support apporté par le parent. Cet outil est à destination des parents, mais sera mis en place par l’orthophoniste dans le cadre de séances d’accompagnement parental. Pour cela nous avons besoin de vos réponses aux questions suivantes',
+        description: '<br /><br />Ce premier questionnaire intervient dans le cadre de notre mémoire d\'orhtophonie. Nous recueillons ces informations dans le but de créer un outil destiné à la thérapie indirecte en oralité.<br /><br />Toutes les informations que vous nous transmettrez seront anonymées, vos coordonnées ne seront utilisées qu\'à titre personnel. La durée du questionnaire est estimée à une trentaine de minutes.<br /><br />',
         thanks: 'Merci pour le temps que vous nous avez accordé',
         available: true
       }).save(function(err, data){ cb(err, data);});
@@ -29,7 +29,6 @@ module.exports = function(){
         survey: data.survey.id,
         order: 1,
         title: 'Identité',
-        description: 'Autant commencer par le plus rébarbatif. Nous ne revendrons pas vos informations aux plus offrants, mais apprécierions pouvoir vous recontacter au besoin.',
         name: 'identite'
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -38,7 +37,6 @@ module.exports = function(){
         survey: data.survey.id,
         order: 2,
         title: 'Formations',
-        description: 'Ceci est un superbe texte de description. Il permet de détendre le visiteur afin de lui extirper les plus viles informations',
         name: 'formation'
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -47,7 +45,6 @@ module.exports = function(){
         survey: data.survey.id,
         order: 3,
         title: 'Pratique professionnelle',
-        description: 'Ceci est un superbe texte de description. Il permet de détendre le visiteur afin de lui extirper les plus viles informations',
         name: 'pratiqueprofessionnelle'
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -56,7 +53,6 @@ module.exports = function(){
         survey: data.survey.id,
         order: 4,
         title: 'Outils & Matériels',
-        description: 'Ceci est un superbe texte de description. Il permet de détendre le visiteur afin de lui extirper les plus viles informations',
         name: 'outilsmateriels'
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -65,8 +61,8 @@ module.exports = function(){
         survey: data.survey.id,
         order: 5,
         title: 'Attentes par rapport à l\'outil',
-        description: 'Ceci est un superbe texte de description. Il permet de détendre le visiteur afin de lui extirper les plus viles informations',
-        name: 'attentes'
+        name: 'attentes',
+        description: 'Notre outil se présentera sous forme de fiches numérisées, imprimables et qui pourront être insérées dans un classeur ou autre support apporté par le parent. Cet outil est à destination des parents, mais sera mis en place par l’orthophoniste dans le cadre de séances d’accompagnement familial.'
       }).save(function(err, data){ cb(err, data);});
     }],
 
@@ -99,7 +95,7 @@ module.exports = function(){
         type: 'check',
         title: '1.2 - Mode d\'exercice',
         order: 2,
-        description: 'Veuillez cocher vos modes d\'exercice, en précisant éventuellement le service concerné',
+        description: 'Veuillez cocher vos modes d\'exercice, en précisant éventuellement le service concerné. Plusieurs réponses possibles.',
         name: 's1q2',
         items: [{
           name: 'liberal',
@@ -164,7 +160,7 @@ module.exports = function(){
         type: 'radio',
         title: '2.3',
         order: 3,
-        description: 'Avez-vous fait des formations complémentaires en oralité?',
+        description: 'Avez-vous suivi des formations complémentaires en oralité?',
         name: 's2q3',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -181,10 +177,10 @@ module.exports = function(){
         description: 'Si oui, laquelle / lesquelles?',
         name: 's2q4',
         items: [
-          {name: 'hanen', text: 'Centre Hanen'},
-          {name: 'bo', text: 'Bo'},
-          {name: 'kunz', text: 'Kunz'},
-          {name: 'barbier', text: 'Barbier'},
+          {name: 'hanen', text: 'Catherine Senez'},
+          {name: 'bo', text: 'Catherine Thibault'},
+          {name: 'kunz', text: 'Fanny Guillon'},
+          {name: 'barbier', text: 'Isabelle Barbier'},
           {name: 'autres', text: 'Autres', free: true, placeholder: 'Précisez', width: 12, inputWidth: 75}
         ]
       }).save(function(err, data){ cb(err, data);});
@@ -195,7 +191,7 @@ module.exports = function(){
         type: 'radio',
         title: '2.5',
         order: 5,
-        description: 'Dans le cadre de la formation initiale, avez-vous reçu un enseignement en accompagnement parental / guidance parentale / accompagnement familial / thérapie indirecte?',
+        description: 'Dans le cadre de la formation initiale, avez-vous reçu un enseignement en accompagnement familial?',
         name: 's2q5',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -209,7 +205,7 @@ module.exports = function(){
         type: 'radio',
         title: '2.6',
         order: 6,
-        description: 'Avez-vous fait des formations complémentaires en accompagnement parental?',
+        description: 'Avez-vous suivi des formations complémentaires en accompagnement familial?',
         name: 's2q6',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -227,9 +223,9 @@ module.exports = function(){
         name: 's2q7',
         items: [
           {name: 'hanen', text: 'Centre Hanen'},
-          {name: 'bo', text: 'Bo'},
-          {name: 'kunz', text: 'Kunz'},
-          {name: 'barbier', text: 'Barbier'},
+          {name: 'bo', text: 'Agnès Bo'},
+          {name: 'kunz', text: 'Laurence Kunz'},
+          {name: 'barbier', text: 'Isabelle Barbier'},
           {name: 'autres', text: 'Autres', free: true, placeholder: 'Précisez', width: 12, inputWidth: 75}
         ]
       }).save(function(err, data){ cb(err, data);});
@@ -264,7 +260,7 @@ module.exports = function(){
         type: 'radio',
         title: '3.2',
         order: 2,
-        description: 'Actuellement, pratiquez vous l\'accompagnement parental (thérapie indirecte) dans les prises en soin des troubles de l\'oralité alimentaire?',
+        description: 'Actuellement, pratiquez vous l\'accompagnement familial (thérapie indirecte) dans les prises en soin des troubles de l\'oralité alimentaire?',
         name: 's3q2',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -278,12 +274,12 @@ module.exports = function(){
         type: 'radio',
         title: '3.3',
         order: 3,
-        description: 'Si oui, quels types d\'accompagnement parental faites-vous? (Définit par Bo, 2013, dans Auzias et le Menn, 2011)',
+        description: 'Si oui, quels types d\'accompagnement familial faites-vous?',
         name: 's3q3',
         items: [
-          {name: 'type1', width: 12, height: 150, text: '<strong>Type I :</strong> Echanges formels ou informels, informations argumentées, conseils, écoute et étayage de l\'orthophoniste à la famille'},
-          {name: 'type2', width: 12, height: 150, text: '<strong>Type II :</strong> Type collcaboratif, conseils, nombreux échanges ,apprentissage de techniques et entraînements. La famille et l\'orthophoniste travaillent selon des objectifs et directives élaborés par l\'orthophoniste'},
-          {name: 'type3', width: 12, height: 150, text: '<strong>Type III :</strong> Repose sur l\'intervention des parents, ressources proposées plutôt que conseils imposés. La famille et l\'orthophoniste travaillent selon des objectifs, mais les stratégies sont discutées et choisies par l\'aidant. Il s\'agit d\'une élaboration conjointe de stratégies adaptées, d\'un partenariat parents-orthophoniste.'}
+          {name: 'type1', width: 12, height: 75, text: '<strong>Type I :</strong> Echanges formels ou informels, informations argumentées, conseils, écoute et étayage de l\'orthophoniste à la famille.'},
+          {name: 'type2', width: 12, height: 75, text: '<strong>Type II :</strong> Collaboration avec les parents, échanges, conseils, objectifs et stratégies choisis par l\'orthophoniste, apport de techniques.'},
+          {name: 'type3', width: 12, height: 75, text: '<strong>Type III :</strong> Intervention des parents, objectifs choisis par l\'orthophoniste, stratégie choisie par le parent, partenariat.'}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -334,7 +330,7 @@ module.exports = function(){
         type: 'radio',
         title: '3.5',
         order: 5,
-        description: 'Parmi les parents avec qui vous pensez utiliser l\'outil, précisez le profil d\'implication parentale (profils adaptés de Family Participation Rating Scale de M.P. Moeller, 2000), le plus fréquemment rencontré',
+        description: 'Parmi les parents avec qui vous pensez utiliser l\'outil, précisez le profil d\'implication parentale, le plus fréquemment rencontré',
         name: 's3q5',
         items: [
           {name: 'profil5', text: '<strong>Profil 5 :</strong> Définition'},
@@ -365,14 +361,19 @@ module.exports = function(){
         type: 'check',
         title: '3.7',
         order: 7,
-        description: 'TODO: Une liste dans une liste c\'est pas compréhensible pour le visiteur',
+        description: 'Si oui, que contiennent-ils?',
         name: 's3q7',
         items: [
-          {name: 'profil5', text: '<strong>Profil 5 :</strong> Définition'},
-          {name: 'profil4', text: '<strong>Profil 4 :</strong> Définition'},
-          {name: 'profil3', text: '<strong>Profil 3 :</strong> Définition'},
-          {name: 'profil2', text: '<strong>Profil 2 :</strong> Définition'},
-          {name: 'profil1', text: '<strong>Profil 1 :</strong> Définition'}
+          {name: 'support1', width: 12, text: 'Repères théoriques'},
+          {name: 'support2', width: 12, text: 'Schémas'},
+          {name: 'support3', width: 12, text: 'Protocoles de désensibilisation du réflexe nauséeux'},
+          {name: 'support4', width: 12, text: 'Gestes d\'aide à la succion'},
+          {name: 'support5', width: 12, text: 'Aides à l\'alimentation'},
+          {name: 'support6', width: 12, text: 'Massages corporels et / ou faciaux'},
+          {name: 'support7', width: 12, text: 'Comptine'},
+          {name: 'support8', width: 12, text: 'Informations sur l\'alimentation'},
+          {name: 'support9', width: 12, text: 'Objectifs pour la séance suivante'},
+          {name: 'support10', width: 12, text: 'Autres', free: true, placeholder: 'Précisez', inputWidth: 75},
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -403,7 +404,7 @@ module.exports = function(){
         type: 'radio',
         title: '4.1',
         order: 1,
-        description: 'Avez-vous connaissance de matériel existant (ouvrages, jeux, support de rééducation...) pour les prises en soin de dysoralités?',
+        description: 'Avez-vous connaissance de matériel existant pour les prises en soin de dysoralités?',
         name: 's4q1',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -414,14 +415,15 @@ module.exports = function(){
     s4q2: ['step4', function(cb, data){
       var question = new db.models['Question']({
         step: data.step4.id,
-        type: 'radio',
+        type: 'fields',
         title: '4.2',
         order: 2,
-        description: 'TODO: C\'est incompréhensible comme formulation!',
+        description: 'Si oui, précisez les références du matériel.',
         name: 's4q2',
         items: [
-          {name: 'oui', text: 'Oui'},
-          {name: 'non', text: 'Non'}
+          {name: 'ref1', text: 'Référence 1', width: 12, inputWidth: 75},
+          {name: 'ref2', text: 'Référence 2', width: 12, inputWidth: 75},
+          {name: 'ref3', text: 'Référence 3', width: 12, inputWidth: 75}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -431,7 +433,7 @@ module.exports = function(){
         type: 'radio',
         title: '4.3',
         order: 3,
-        description: 'Avez vous connaissance de matériel existant <em>pour les parents</em>, dans le cadre des dysoralités?',
+        description: 'Avez vous connaissance de matériel existant <strong>pour les parents</strong>, dans le cadre des dysoralités?',
         name: 's4q3',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -442,14 +444,15 @@ module.exports = function(){
     s4q4: ['step4', function(cb, data){
       var question = new db.models['Question']({
         step: data.step4.id,
-        type: 'radio',
+        type: 'fields',
         title: '4.4',
         order: 4,
-        description: 'TODO: C\'est incompréhensible comme formulation!',
+        description: 'Si oui, précisez les références du matériel.',
         name: 's4q4',
         items: [
-          {name: 'oui', text: 'Oui'},
-          {name: 'non', text: 'Non'}
+          {name: 'ref1', text: 'Référence 1', width: 12, inputWidth: 75},
+          {name: 'ref2', text: 'Référence 2', width: 12, inputWidth: 75},
+          {name: 'ref3', text: 'Référence 3', width: 12, inputWidth: 75}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -459,7 +462,7 @@ module.exports = function(){
         type: 'radio',
         title: '4.5',
         order: 5,
-        description: 'Fabriquez-vous du matériel, des supports, pour vos prise en soin des dysoralités?',
+        description: 'Fabriquez-vous des supports pour vos prise en soin des dysoralités?',
         name: 's4q5',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -473,45 +476,67 @@ module.exports = function(){
         type: 'check',
         title: '4.6',
         order: 6,
-        description: 'Si vous fabriquez des supports pour les parents, de quel type?',
+        description: 'Si oui, de quel type?',
         name: 's4q6',
         items: [
           {name: 'livret', text: 'Livret'},
           {name: 'carnet', text: 'Carnet'},
-          {name: 'feuille', text: 'Feuille avec schémas / dessins'},
+          {name: 'feuille', text: 'Schémas'},
           {name: 'ecrits', text: 'Explications écrites'},
           {name: 'autres', text: 'Autres: ', free: true, inputWidth: 60},
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
-    s4q7: ['step4', function(cb, data){
+
+
+
+
+    s5q1: ['step5', function(cb, data){
       var question = new db.models['Question']({
-        step: data.step4.id,
+        step: data.step5.id,
         type: 'check',
-        title: '4.7',
-        order: 7,
-        description: 'Si vous fabriquez des supports pour votre pratique, de quel type?',
-        name: 's4q7',
+        title: '5.1',
+        order: 1,
+        description: 'Parmi les éléments suivants, lesquels souhaiteriez-vous trouver dans l’outil ? (plusieurs choix possibles)<br />Une case commentaire est disponible pour toute autre remarque.',
+        name: 's5q1',
         items: [
-          {name: 'jeux', text: 'Jeux'},
-          {name: 'autres', text: 'Autres: ', free: true, inputWidth: 60},
-        ]
+          {name: 'reperes', width: 12, height: 75, text: 'Repères théoriques sur le développement de la sphère orale (anatomiques et temporels)'},
+          {name: 'schemas', width: 12, text: 'Schémas anatomiques de la sphère oro-faciale'},
+          {name: 'desensibilitation', width: 12, text: 'Protocole de désensibilisation du réflexe nauséeux'},
+          {name: 'succion', width: 12, text: 'Gestes d’aide à la succion'},
+          {name: 'alimentation', width: 12, text: 'Aide à l’alimentation'},
+          {name: 'massages', width: 12, text: 'Technique de massages corporels & faciaux'},
+          {name: 'comptines', width: 12, text: 'Comptines'},
+          {name: 'alimentation2', width: 12, height: 75, text: 'Informations sur l’alimentation (texture, quantité des cuillerées, température...)'},
+          {name: 'objectifs', width: 12, text: 'Objectifs pour la séance suivante'},
+          {name: 'astuce', width: 12, height: 75, text: 'Fiche « Astuce », pense-bête que les parents et l’orthophoniste pourront remplir'},
+          {name: 'emploidutemps', width: 12, height: 75, text: 'Fiche « Emploi du temps » pour noter les moments importants de la journée (temps de massages...)'},
+          {name: 'questions', width: 12, height: 75, text: 'Fiche « Questions » sur laquelle les parents pourraient noter leurs interrogations, à poser à l’orthophoniste à la séance suivante'},
+          {name: 'masemaine', width: 12, height: 75, text: 'Fiche « Ma semaine » où les parents noteraient ce qui s’est passé dans la semaine (positif et négatif)'},
+          {name: 'diversification', width: 12, text: 'Fiche de diversification alimentaire'},
+          {name: 'praxies', width: 12, text: 'Fiches praxies'},
+          {name: 'jeux', width: 12, text: 'Fiches de jeux (souffle, tactiles...)'},
+          {name: 'autres', width: 12, text: 'Autres', free: true, inputWidth: 75, placeholder: 'Précisez'}
+        ],
+        hasComments: true
       }).save(function(err, data){ cb(err, data);});
     }],
-    s4q8: ['step4', function(cb, data){
+    s5q2: ['step5', function(cb, data){
       var question = new db.models['Question']({
-        step: data.step4.id,
+        step: data.step5.id,
         type: 'check',
-        title: '4.8',
-        order: 8,
-        description: 'Si vous fabriquez des supports pour vous, de quel type?',
-        name: 's4q8',
+        title: '5.2',
+        order: 2,
+        description: 'Quelle forme de fiches vous conviendrait le mieux? <br />Une case commentaire est disponible pour toute autre remarque.',
+        name: 's5q2',
         items: [
-          {name: 'trame', text: 'Trame de rééducation'},
-          {name: 'autres', text: 'Autres: ', free: true, inputWidth: 60},
-        ]
+          {name: 'preremplies', width: 12, height: 75, text: 'Fiches pré-remplies avec une partie libre (à remplir par l’orthophoniste avec le parent)'},
+          {name: 'cleenmain', width: 12, text: 'Fiches « clé en main » prêtes à être utilisées'},
+          {name: 'autres', width: 12, text: 'Autres: ', free: true, inputWidth: 75, placeholder: 'Précisez'},
+        ],
+        hasComments: true
       }).save(function(err, data){ cb(err, data);});
-    }],
+    }]
 
 
   }, function(err, data){

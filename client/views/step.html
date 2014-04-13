@@ -2,7 +2,7 @@
   <h1>{{step.title}}</h1>
   <p ng-bind-html="step.description"></p>
   <div class="question" ng-repeat="question in step.questions">
-    <h2>{{question.title}} <small>{{question.description}}</small></h2>
+    <h2>{{question.title}} <small ng-bind-html="question.description"></small></h2>
     <div ng-switch on="question.type">
 
       <!-- CHECKBOXES -->
@@ -80,7 +80,7 @@
       </div>
 
     </div>
-    <textarea class="form-control comments" rows="3" ng-model="question.comments" ng-if="question.hasComments" placeholder="Commentaires"></textarea>
+    <textarea class="form-control comments" rows="3" ng-model="question.comments" ng-if="question.hasComments" placeholder="{{question.commentsPlaceholder || 'Commentaires'}}"></textarea>
   </div>
   <button ng-click="validate()">Continuer</button>
 </div>
