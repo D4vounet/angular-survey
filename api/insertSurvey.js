@@ -13,7 +13,7 @@ module.exports = function(){
     survey: ['clean', function(cb){
       var survey = new db.models['Survey']({
         name: 'Questionnaire',
-        description: '<br /><br />Ce premier questionnaire intervient dans le cadre de notre mémoire d\'orhtophonie. Nous recueillons ces informations dans le but de créer un outil destiné à la thérapie indirecte en oralité.<br /><br />Toutes les informations que vous nous transmettrez seront anonymées. Vos coordonnées ne seront utilisées qu\'à titre personnel. La durée du questionnaire est estimée à une trentaine de minutes.<br /><br />',
+        description: '<br /><br />Ce premier questionnaire intervient dans le cadre de notre mémoire d\'orthophonie. Nous recueillons ces informations dans le but de créer un outil destiné à la thérapie indirecte en oralité.<br /><br />Toutes les informations que vous nous transmettrez seront anonymées. Vos coordonnées ne seront utilisées qu\'à titre personnel. La durée du questionnaire est estimée à une trentaine de minutes.<br /><br />',
         thanks: 'Merci pour le temps que vous nous avez accordé.',
         available: true
       }).save(function(err, data){ cb(err, data);});
