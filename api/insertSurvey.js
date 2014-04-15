@@ -13,8 +13,8 @@ module.exports = function(){
     survey: ['clean', function(cb){
       var survey = new db.models['Survey']({
         name: 'Questionnaire',
-        description: '<br /><br />Ce premier questionnaire intervient dans le cadre de notre mémoire d\'orhtophonie. Nous recueillons ces informations dans le but de créer un outil destiné à la thérapie indirecte en oralité.<br /><br />Toutes les informations que vous nous transmettrez seront anonymées, vos coordonnées ne seront utilisées qu\'à titre personnel. La durée du questionnaire est estimée à une trentaine de minutes.<br /><br />',
-        thanks: 'Merci pour le temps que vous nous avez accordé',
+        description: '<br /><br />Ce premier questionnaire intervient dans le cadre de notre mémoire d\'orhtophonie. Nous recueillons ces informations dans le but de créer un outil destiné à la thérapie indirecte en oralité.<br /><br />Toutes les informations que vous nous transmettrez seront anonymées. Vos coordonnées ne seront utilisées qu\'à titre personnel. La durée du questionnaire est estimée à une trentaine de minutes.<br /><br />',
+        thanks: 'Merci pour le temps que vous nous avez accordé.',
         available: true
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -95,7 +95,7 @@ module.exports = function(){
         type: 'check',
         title: '1.2 - Mode d\'exercice',
         order: 2,
-        description: 'Veuillez cocher vos modes d\'exercice, en précisant éventuellement le service concerné. Plusieurs réponses possibles.',
+        description: 'Veuillez cocher votre mode d\'exercice, en précisant éventuellement le service concerné. Plusieurs réponses possibles.',
         name: 's1q2',
         items: [{
           name: 'liberal',
@@ -135,7 +135,7 @@ module.exports = function(){
         description: '',
         name: 's2q1',
         items: [
-          {name: 'lieu', text: 'Lieu', placeholder: 'Centre de formation initial', width: 12, inputWidth: 75},
+          {name: 'lieu', text: 'Lieu', placeholder: 'Centre de formation initiale', width: 12, inputWidth: 75},
           {name: 'annee', text: 'Année', placeholder: 'Année d\'obtention du diplôme', width: 12, inputWidth: 75}
         ]
       }).save(function(err, data){ cb(err, data);});
@@ -260,7 +260,7 @@ module.exports = function(){
         type: 'radio',
         title: '3.2',
         order: 2,
-        description: 'Actuellement, pratiquez vous l\'accompagnement familial (thérapie indirecte) dans les prises en soin des troubles de l\'oralité alimentaire?',
+        description: 'Actuellement, pratiquez vous l\'accompagnement familial (thérapie indirecte) dans les prises en soins des troubles de l\'oralité alimentaire?',
         name: 's3q2',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -271,7 +271,7 @@ module.exports = function(){
     s3q3: ['step3', function(cb, data){
       var question = new db.models['Question']({
         step: data.step3.id,
-        type: 'radio',
+        type: 'check',
         title: '3.3',
         order: 3,
         description: 'Si oui, quels types d\'accompagnement familial faites-vous?',
@@ -279,7 +279,7 @@ module.exports = function(){
         items: [
           {name: 'type1', width: 12, height: 75, text: '<strong>Type I :</strong> Echanges formels ou informels, informations argumentées, conseils, écoute et étayage de l\'orthophoniste à la famille.'},
           {name: 'type2', width: 12, height: 100, text: '<strong>Type II :</strong> Collaboration avec les parents, échanges, conseils, objectifs et stratégies choisis par l\'orthophoniste, apport de techniques.'},
-          {name: 'type3', width: 12, height: 75, text: '<strong>Type III :</strong> Intervention des parents, objectifs choisis par l\'orthophoniste, stratégie choisie par le parent, partenariat.'}
+          {name: 'type3', width: 12, height: 75, text: '<strong>Type III :</strong> Intervention des parents, objectifs choisis par l\'orthophoniste, stratégies choisies par le parent, partenariat.'}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -296,10 +296,10 @@ module.exports = function(){
           text: 'Je parviens toujours à résoudre les problèmes difficiles.'
         },{
           name: 'phrase2',
-          text: '« Si quelqu’un (parents, entourage de l’enfant) a des difficultés pour comprendre mes explications, je peux trouver un moyen pour améliorer la situation.'
+          text: 'Si quelqu’un (parents, entourage de l’enfant) a des difficultés pour comprendre mes explications, je peux trouver un moyen pour améliorer la situation.'
         },{
           name: 'phrase3',
-          text: '« Il est facile pour moi de maintenir les objectifs de la séance.'
+          text: 'Il est facile pour moi de maintenir les objectifs de la séance.'
         },{
           name: 'phrase4',
           text: 'J’ai confiance en moi pour faire face efficacement aux questions inattendues des parents et autres aléas.'
@@ -335,7 +335,7 @@ module.exports = function(){
         items: [
           {name: 'profil5', height: 190, width: 12, text: '<strong>Profil 5, participation idéale :</strong> Très bons ajustements de la famille qui prend en compte les difficultés de l’enfant. Utilisation des techniques transmises par l’orthophoniste, au domicile. Lors des séances : coopération active et présence régulière, indications suivies spontanément. Les parents font le lien entre les différents professionnels et impliquent les membres de la famille élargie à la rééducation.'},
           {name: 'profil4', height: 145, width: 12, text: '<strong>Profil 4, bonne participation :</strong> Adaptation supérieure à la moyenne, participation régulière aux séances, rôle actif des parents mais pas principal. Efforts pour l’utilisation des techniques au domicile avec facilité parfois, et pour impliquer les membres de la famille élargie à la rééducation.'},
-          {name: 'profil3', height: 190, width: 12, text: '<strong>Profil 3, participation moyenne :</strong> Efforts pour comprendre et surmonter les difficultés de l’enfant. Participation à la plupart des séances. La transmission des informations à la famille élargie est limitée. Gestion de la rééducation perçue comme difficile par la famille et parfois assurée par un membre de la famille qui fait plus que sa part de responsabilités. Volonté d’utiliser les techniques mais besoin de soutien et d’indications au quotidien.'},
+          {name: 'profil3', height: 190, width: 12, text: '<strong>Profil 3, participation moyenne :</strong> Efforts pour comprendre et surmonter les difficultés de l’enfant. Participation à la plupart des séances. La transmission des informations à la famille élargie est limitée. Gestion de la rééducation perçue comme difficile par la famille et parfois assurée par un membre de la famille qui fait plus que sa part de responsabilité. Volonté d’utiliser les techniques mais besoin de soutien et d’indications au quotidien.'},
           {name: 'profil2', height: 145, width: 12, text: '<strong>Profil 2, participation sous la moyenne :</strong> Difficultés d’acceptation du trouble. Présence aux séances peu régulière. Stress familial quotidien qui empêche la transposition efficace des techniques à la maison, peu d’investissement dans la rééducation. Les soins de l’enfant sont des défis quotidiens.'},
           {name: 'profil1', height: 120, width: 12, text: '<strong>Profil 1, participation limitée :</strong> Le stress familial prend le pas sur les besoins quotidiens de l’enfant. Compréhension limitée du trouble et de ses conséquences. Participation très irrégulière ou très inefficace.'}
         ]
@@ -347,7 +347,7 @@ module.exports = function(){
         type: 'radio',
         title: '3.6',
         order: 6,
-        description: 'Donnez vous des supports (feuilles, cahier...) aux parents dans le cadre des prises en soin des dysoralités?',
+        description: 'Donnez vous des supports (feuilles, cahier...) aux parents dans le cadre des prises en soins des dysoralités?',
         name: 's3q6',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -382,7 +382,7 @@ module.exports = function(){
         type: 'radio',
         title: '4.1',
         order: 1,
-        description: 'Avez-vous connaissance de matériel existant pour les prises en soin de dysoralités?',
+        description: 'Avez-vous connaissance de matériel existant pour les prises en soins des dysoralités?',
         name: 's4q1',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -440,7 +440,7 @@ module.exports = function(){
         type: 'radio',
         title: '4.5',
         order: 5,
-        description: 'Fabriquez-vous des supports pour vos prise en soin des dysoralités?',
+        description: 'Fabriquez-vous des supports pour vos prise en soins des dysoralités?',
         name: 's4q5',
         items: [
           {name: 'oui', text: 'Oui'},
@@ -482,16 +482,17 @@ module.exports = function(){
           {name: 'schemas', width: 12, text: 'Schémas anatomiques de la sphère oro-faciale'},
           {name: 'desensibilitation', width: 12, text: 'Protocole de désensibilisation du réflexe nauséeux'},
           {name: 'succion', width: 12, text: 'Gestes d’aide à la succion'},
-          {name: 'alimentation', width: 12, text: 'Aide à l’alimentation'},
-          {name: 'massages', width: 12, text: 'Technique de massages corporels & faciaux'},
+          {name: 'alimentation', width: 12, text: 'Aides à l’alimentation'},
+          {name: 'massages', width: 12, text: 'Techniques de massages corporels & faciaux'},
           {name: 'comptines', width: 12, text: 'Comptines'},
           {name: 'alimentation2', width: 12, height: 75, text: 'Informations sur l’alimentation (texture, quantité des cuillerées, température...)'},
           {name: 'objectifs', width: 12, text: 'Objectifs pour la séance suivante'},
           {name: 'astuce', width: 12, height: 75, text: 'Fiche « Astuce », pense-bête que les parents et l’orthophoniste pourront remplir'},
           {name: 'emploidutemps', width: 12, height: 75, text: 'Fiche « Emploi du temps » pour noter les moments importants de la journée (temps de massages...)'},
-          {name: 'questions', width: 12, height: 75, text: 'Fiche « Questions » sur laquelle les parents pourraient noter leurs interrogations, à poser à l’orthophoniste à la séance suivante'},
-          {name: 'masemaine', width: 12, height: 75, text: 'Fiche « Ma semaine » où les parents noteraient ce qui s’est passé dans la semaine (positif et négatif)'},
-          {name: 'diversification', width: 12, text: 'Fiche de diversification alimentaire'},
+          {name: 'questions', width: 12, height: 75, text: 'Fiche « Questions » sur laquelle les parents pourront noter leurs interrogations, à poser à l’orthophoniste à la séance suivante'},
+          {name: 'masemaine', width: 12, height: 75, text: 'Fiche « Ma semaine » où les parents noteront ce qui s’est passé dans la semaine (positif et négatif)'},
+          {name: 'liaison', width: 12, text: 'Fiche « Liaison » que les professionnels pourront remplir'},
+          {name: 'diversification', width: 12, text: 'Fiches de diversification alimentaire'},
           {name: 'praxies', width: 12, text: 'Fiches praxies'},
           {name: 'jeux', width: 12, text: 'Fiches de jeux (souffle, tactiles...)'},
           {name: 'autres', width: 12, text: 'Autres', free: true, inputWidth: 75, placeholder: 'Précisez'}
