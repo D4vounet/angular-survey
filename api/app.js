@@ -25,7 +25,7 @@ require('./models/question')();
 require('./models/answer')();
 
 // Creates the survey
-require('./insertSurvey')();
+//require('./insertSurvey')();
 
 // Include everything from routes
 require('./routes/results')(app);

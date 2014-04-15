@@ -45,7 +45,7 @@ module.exports = function(){
         survey: data.survey.id,
         order: 3,
         title: 'Pratique professionnelle',
-        name: 'pratiqueprofessionnelle'
+        name: 'pratiqueProfessionnelle'
       }).save(function(err, data){ cb(err, data);});
     }],
     step4: ['survey', function(cb, data){
@@ -53,7 +53,7 @@ module.exports = function(){
         survey: data.survey.id,
         order: 4,
         title: 'Outils & Matériels',
-        name: 'outilsmateriels'
+        name: 'outilsEtMateriels'
       }).save(function(err, data){ cb(err, data);});
     }],
     step5: ['survey', function(cb, data){
@@ -177,9 +177,9 @@ module.exports = function(){
         description: 'Si oui, laquelle / lesquelles?',
         name: 's2q4',
         items: [
-          {name: 'hanen', text: 'Catherine Senez'},
-          {name: 'bo', text: 'Catherine Thibault'},
-          {name: 'kunz', text: 'Fanny Guillon'},
+          {name: 'senez', text: 'Catherine Senez'},
+          {name: 'thibault', text: 'Catherine Thibault'},
+          {name: 'guillon', text: 'Fanny Guillon'},
           {name: 'barbier', text: 'Isabelle Barbier'},
           {name: 'autres', text: 'Autres', free: true, placeholder: 'Précisez', width: 12, inputWidth: 75}
         ]
@@ -246,11 +246,11 @@ module.exports = function(){
         description: 'En moyenne, combien de temps consacrez-vous à la préparation des séances de thérapie indirecte en dysoralités?',
         name: 's3q1',
         items: [
-          {name: '1', text: 'De 0min à 30min'},
-          {name: '2', text: 'De 30min à 1h'},
-          {name: '3', text: 'De 1h à 1h30'},
-          {name: '4', text: 'De 1h30 à 2h'},
-          {name: '5', text: 'Plus de 2h'}
+          {name: '30min', text: 'De 0min à 30min'},
+          {name: '1h', text: 'De 30min à 1h'},
+          {name: '1h30', text: 'De 1h à 1h30'},
+          {name: '2h', text: 'De 1h30 à 2h'},
+          {name: 'plus', text: 'Plus de 2h'}
         ]
       }).save(function(err, data){ cb(err, data);});
     }],
@@ -459,7 +459,7 @@ module.exports = function(){
         items: [
           {name: 'livret', text: 'Livret'},
           {name: 'carnet', text: 'Carnet'},
-          {name: 'feuille', text: 'Schémas'},
+          {name: 'schemas', text: 'Schémas'},
           {name: 'ecrits', text: 'Explications écrites'},
           {name: 'autres', text: 'Autres: ', free: true, inputWidth: 60},
         ]
@@ -482,10 +482,10 @@ module.exports = function(){
           {name: 'schemas', width: 12, text: 'Schémas anatomiques de la sphère oro-faciale'},
           {name: 'desensibilitation', width: 12, text: 'Protocole de désensibilisation du réflexe nauséeux'},
           {name: 'succion', width: 12, text: 'Gestes d’aide à la succion'},
-          {name: 'alimentation', width: 12, text: 'Aides à l’alimentation'},
+          {name: 'aideAlimentation', width: 12, text: 'Aides à l’alimentation'},
           {name: 'massages', width: 12, text: 'Techniques de massages corporels & faciaux'},
           {name: 'comptines', width: 12, text: 'Comptines'},
-          {name: 'alimentation2', width: 12, height: 75, text: 'Informations sur l’alimentation (texture, quantité des cuillerées, température...)'},
+          {name: 'informationsAlimentation', width: 12, height: 75, text: 'Informations sur l’alimentation (texture, quantité des cuillerées, température...)'},
           {name: 'objectifs', width: 12, text: 'Objectifs pour la séance suivante'},
           {name: 'astuce', width: 12, height: 75, text: 'Fiche « Astuce », pense-bête que les parents et l’orthophoniste pourront remplir'},
           {name: 'emploidutemps', width: 12, height: 75, text: 'Fiche « Emploi du temps » pour noter les moments importants de la journée (temps de massages...)'},
